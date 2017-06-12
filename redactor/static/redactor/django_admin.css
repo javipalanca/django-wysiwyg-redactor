@@ -1,0 +1,9 @@
+.redactor-box { 
+  float: left;
+  width: 100%;
+}
+/* plays well with django-suit full-width */
+.full-width .redactor-box {
+  max-width: none;
+}
+body .redactor-box_fullscreen{ max-width: none; }
