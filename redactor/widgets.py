@@ -1,7 +1,10 @@
 from django import forms
 from django.forms import widgets
 from django.utils.safestring import mark_safe
-from django.core.urlresolvers import reverse_lazy
+try:
+    from django.core.urlresolvers import reverse_lazy
+except ImportError:
+    from django.urls import reverse_lazy
 from django.conf import settings
 
 from redactor.utils import json_dumps
@@ -42,6 +45,7 @@ class RedactorEditor(widgets.Textarea):
     def _media(self):
         _min = '' if settings.DEBUG else '.min'
         js = (
+            'admin/js/vendor/jquery/jquery%s.js' % _min,
             'redactor/jquery.redactor.init.js',
             'redactor/redactor{}.js'.format(_min),
             'redactor/langs/{}.js'.format(self.options.get('lang', 'en')),
