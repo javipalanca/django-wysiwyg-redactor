@@ -29,7 +29,7 @@ class RedactorEditor(widgets.Textarea):
         kwargs['attrs'] = widget_attrs
         super(RedactorEditor, self).__init__(*args, **kwargs)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """
         Must parse self.options with json_dumps on self.render.
         Because at some point Django calls RedactorEditor.__init__ before
