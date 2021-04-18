@@ -36,7 +36,7 @@ class RedactorEditor(widgets.Textarea):
         loading the urls, and it will break.
         """
         attrs['data-redactor-options'] = json_dumps(self.options)
-        html = super(RedactorEditor, self).render(name, value, attrs)
+        html = super(RedactorEditor, self).render(name, value, attrs, renderer)
         return mark_safe(html)
 
     def _media(self):
