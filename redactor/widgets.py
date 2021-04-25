@@ -43,8 +43,8 @@ class RedactorEditor(widgets.Textarea):
         _min = '' if settings.DEBUG else '.min'
         js = (
             'redactor/redactor{}.js'.format(_min),
-            'redactor/langs/{}.js'.format(self.options.get('lang', 'en')),
             'redactor/jquery.redactor.init.js',
+            'redactor/langs/{}.js'.format(self.options.get('lang', 'en')),
         )
 
         if 'plugins' in self.options:
